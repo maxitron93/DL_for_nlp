@@ -100,5 +100,45 @@ Chinking is performed after chunking. Post chunking, you have chunks with their 
 
 For example, if you need only the nouns or noun phrases from a corpus to answer questions such as "what is this corpus talking about?", you would apply chinking because it would extract just what you want and present it in front of your eyes. Let's check this out with an exercise.
 
+## Named Entity Recognition
+
+After text preprocessing and POS tagging, our corpus becomes semi-structured and machine-readable. Thus, information extraction is performed after we've readied our corpus.
+
+Named entitiy recognition is one type of information extraction:
+
+![Named entity recognition](../assets/named_entity_recognition.PNG)
+
+Named entity recognizers are algorithms that identify and extract named entities from corpora and assign them a category:
+
+- Input: Tokenized words with their respective POS tags.
+- Output: Named entities along with their categories, among the other tokenized words and their POS tags.
+
+The problem of named entity recognition takes place in two phases:
+
+1. Identifying and recognizing named entities (for example, 'London')
+2. Classifying these names entities (for example, 'London' is a 'location')
+
+The first phase of identifying named entities is quite similar to the process of chunking, because the aim is to recognize things that are denoted by proper names. The named entity recognizer needs to look out for continuous sequences of tokens to be able to correctly spot named entities. For example, 'Bank of America' should be identified as a single named entity, despite the phrase containing the word 'America', which in itself is a named entity.
+
+Much like POS taggers, most named entity recognizers are supervised learning algorithms. They are trained on input that contains named entities along with the categories that they fall under, thus enabling the algorithm to learn how to classify unknown named entities in the future.
+
+This input containing named entities with their respective categories is often known as a knowledge base. Once a named entity recognizer has been trained and is given an unrecognized corpus, it refers to this knowledge base to search for the most accurate classification to assign to a named entity.
+
+However, due to the fact that supervised learning requires an excessive amount of labeled data, unsupervised learning versions of named entity recognizers are also being researched.
+
+There are two broad methods to design a named entity recognizer: a linguistic approach by <strong>defining rules</strong> to recognize entities, or a <strong>stochastic approach</strong> using statistical models to accurately determine which category a named entity falls into best.
+
+#### Rule-Based NERs
+
+Rule-based NERs work in the same way that rule-based POS taggers do.
+
+#### Stochastic NERs
+
+These include any and all models that use statistics to name and recognize entities. There are several approaches to stochastic named entity recognition. Here are two of them:
+
+- <strong>Maximum Entropy Classification</srtong>: This is a machine learning classification model. It calculates the probability of a named entity falling into a particular category solely on the basis of the information provided to it (the corpus).
+- <strong>Hidden Markov Model</strong>: This method is the same as the one explained in the POS tagging section, but instead of the hidden set of states being the POS tags, they are the categories of the named entities.
+
+Note: The recognition and categorization of named entities strongly depends on the data that the recognizer has been trained on. This is something to keep in mind when implementing named entity recognition; it is often better to train and develop your own recognizer for specific use cases.
 
 
