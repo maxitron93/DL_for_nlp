@@ -99,3 +99,6 @@ Chinking is an extension of chunking, as you've probably guessed already from it
 Chinking is performed after chunking. Post chunking, you have chunks with their chunk tags, along with individual words with their POS tags. Often, these extra words are unnecessary. They don't contribute to the final result or the entire process of understanding natural language and thus are a nuisance. The process of chinking helps us deal with this issue by extracting the chunks, and their chunk tags form the tagged corpus, thus getting rid of the unnecessary bits. These useful chunks are called chinks once they have been extracted from the tagged corpus.
 
 For example, if you need only the nouns or noun phrases from a corpus to answer questions such as "what is this corpus talking about?", you would apply chinking because it would extract just what you want and present it in front of your eyes. Let's check this out with an exercise.
+
+
+
